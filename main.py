@@ -11,6 +11,8 @@ def read_label(path: str):
             object = line.strip().split(" ")
 
             name = object[0]
+            if name == "DontCare":
+                continue
             height = float(object[8])
             width = float(object[9])
             length = float(object[10])
@@ -127,9 +129,9 @@ def draw_3d_boxes(pointcloud, boxes, calib):
 
 
 if __name__ == "__main__":
-    data_path = "./kitti_dataset/training/pointclouds/000000.bin"
-    label_path = "./kitti_dataset/training/labels/000000.txt"
-    calib_path = "./kitti_dataset/training/calib/000000.txt"
+    data_path = "./kitti_dataset/training/pointclouds/000009.bin"
+    label_path = "./kitti_dataset/training/labels/000009.txt"
+    calib_path = "./kitti_dataset/training/calib/000009.txt"
 
     boxes = read_label(label_path)
     calib = read_calib(calib_path)
